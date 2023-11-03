@@ -86,7 +86,7 @@ function game() {
     console.log("You are the winner of the game! Congratulations!")
   } else if (playerScore < computerScore) {
     console.log("You lose. Better luck next time!")
-  } else if (tieScore > playerScore && tieScore > computerScore) {
+  } else if ((playerScore === computerScore) || (tieScore > playerScore && tieScore > computerScore)) {
     console.log("You tied! Better play again to find out who wins.")
   }
 }
