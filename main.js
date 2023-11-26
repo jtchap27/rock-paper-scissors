@@ -1,3 +1,10 @@
+const container = document.querySelector("#container");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const body = document.querySelector("body");
+const scoresContainer = document.querySelector("#scoresContainer");
+
 function getComputerChoice() {
   let x = Math.floor(Math.random() * 100) + 1;
   if (x <= 33) {
@@ -10,23 +17,6 @@ function getComputerChoice() {
 }
 
 let computerSelection = getComputerChoice();
-
-function getPlayerChoice() {
-  let playerInput = prompt("Please type in Rock, Paper, or Scissors");
-  playerInput = playerInput.toLowerCase();
-  if (playerInput === "rock") {
-    return "Rock";
-  } else if (playerInput === "paper") {
-    return "Paper";
-  } else if (playerInput === "scissors") {
-    return "Scissors";
-  } else {
-    alert("Please try again")
-    getPlayerChoice();
-  }
-}
-
-let playerSelection = getPlayerChoice();
 
 let playerScore = 0;
 let computerScore = 0;
@@ -63,32 +53,100 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-// console.log(playerScore, computerScore, tieScore);
 
-// New function called game()
-// Use playRound function and loop 5 times
-// After each loop, store the output into something
-// Keep score for player and computer
-// Reports winner and loser at the end
 
-// Problem is the game function isn't resetting each time through the loop
-// I want the game() function to go through, then deposit that output into the console log and score, keep that info, then run the game() function again and output that info again, etc
-
-function game() {
-  for (let i = 1; i <=5; i++) {
-    console.log(playRound(getPlayerChoice(), getComputerChoice()));
-    console.log(playerScore, computerScore, tieScore);
+rock.addEventListener("click", () => {
+  let playerSelection = "Rock";
+  let oneRoundResultText = document.createElement("div");
+  oneRoundResultText.textContent = playRound(playerSelection, getComputerChoice());
+  let playerScoreCounter = document.querySelector("#playerScoreCounter");
+  let computerScoreCounter = document.querySelector("#computerScoreCounter");
+  playerScoreCounter.textContent = playerScore;
+  computerScoreCounter.textContent = computerScore;
+  body.appendChild(oneRoundResultText);
+  if (playerScore === 5) {
+    let playerWins = document.createElement("h1")
+    playerWins.textContent = "Congratulations! You won!";
+    scoresContainer.appendChild(playerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
+  } else if (computerScore === 5) {
+    let computerWins = document.createElement("h1")
+    computerWins.textContent = "You lose. Better luck next time.";
+    scoresContainer.appendChild(computerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
   }
-  if (playerScore > computerScore) {
-    console.log("You are the winner of the game! Congratulations!")
-  } else if (playerScore < computerScore) {
-    console.log("You lose. Better luck next time!")
-  } else if ((playerScore === computerScore) || (tieScore > playerScore && tieScore > computerScore)) {
-    console.log("You tied! Better play again to find out who wins.")
-  }
-}
+});
 
-game();
+paper.addEventListener("click", () => {
+  let playerSelection = "Paper";
+  let oneRoundResultText = document.createElement("div");
+  oneRoundResultText.textContent = playRound(playerSelection, getComputerChoice());
+  let playerScoreCounter = document.querySelector("#playerScoreCounter");
+  let computerScoreCounter = document.querySelector("#computerScoreCounter");
+  playerScoreCounter.textContent = playerScore;
+  computerScoreCounter.textContent = computerScore;
+  body.appendChild(oneRoundResultText);
+  if (playerScore === 5) {
+    let playerWins = document.createElement("h1")
+    playerWins.textContent = "Congratulations! You won!";
+    scoresContainer.appendChild(playerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
+  } else if (computerScore === 5) {
+    let computerWins = document.createElement("h1")
+    computerWins.textContent = "You lose. Better luck next time.";
+    scoresContainer.appendChild(computerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
+  }
+});
+
+scissors.addEventListener("click", () => {
+  let playerSelection = "Scissors";
+  let oneRoundResultText = document.createElement("div");
+  oneRoundResultText.textContent = playRound(playerSelection, getComputerChoice());
+  let playerScoreCounter = document.querySelector("#playerScoreCounter");
+  let computerScoreCounter = document.querySelector("#computerScoreCounter");
+  playerScoreCounter.textContent = playerScore;
+  computerScoreCounter.textContent = computerScore;
+  body.appendChild(oneRoundResultText);
+  if (playerScore === 5) {
+    let playerWins = document.createElement("h1")
+    playerWins.textContent = "Congratulations! You won!";
+    scoresContainer.appendChild(playerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
+  } else if (computerScore === 5) {
+    let computerWins = document.createElement("h1")
+    computerWins.textContent = "You lose. Better luck next time.";
+    scoresContainer.appendChild(computerWins);
+    let newGameBtn = document.createElement("button");
+    newGameBtn.textContent = "New Game";
+    newGameBtn.addEventListener("click", () => {
+      window.location.reload();
+    });
+    container.appendChild(newGameBtn);
+  }
+});

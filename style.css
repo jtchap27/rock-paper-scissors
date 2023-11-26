@@ -1,0 +1,26 @@
+#rock,
+#paper,
+#scissors {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  flex: auto;
+}
+
+#scoresContainer {
+  display: flex;
+  flex: auto;
+}
+
+#playerScoreCounter,
+#computerScoreCounter {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  text-align: center;
+}
